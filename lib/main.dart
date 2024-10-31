@@ -2,6 +2,7 @@ import 'package:appflutter/pages/music_room.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'pages/home.dart';
 
@@ -15,16 +16,24 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      darkTheme: ThemeData(brightness: Brightness.dark,),
-      theme: ThemeData(
-        useMaterial3: true,
-        textTheme: GoogleFonts.pacificoTextTheme(),
-        //appBarTheme: const AppBarTheme(backgroundColor: Colors.black)
-      ),
-      home: const MyBoxPage(),
+    return ScreenUtilInit(
+      designSize: const Size(430, 932),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (_, child){
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          darkTheme: ThemeData(brightness: Brightness.dark,),
+          theme: ThemeData(
+            useMaterial3: true,
+            textTheme: GoogleFonts.pacificoTextTheme(),
+            //appBarTheme: const AppBarTheme(backgroundColor: Colors.black)
+          ),
+         home: child,
+        );
+      },
+      child: const MyBoxPage(),
     );
   }
 }

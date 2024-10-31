@@ -4,11 +4,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:appflutter/widgets/control_panel.dart';
 import 'package:appflutter/widgets/now_playing.dart';
 import 'package:appflutter/widgets/speaker.dart';
-import 'package:appflutter/widgets/televersion.dart';
+import 'package:appflutter/widgets/television.dart';
 import 'package:appflutter/widgets/wall.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../texts/header.dart';
 import '../widgets/tv_remote.dart';
@@ -19,25 +20,45 @@ class MyBoxPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        //  
         //drawer: Drawer(),
+        backgroundColor: const Color.fromRGBO(228, 228, 228, 1.0),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          leading: Container(
+              margin: EdgeInsets.only(left: 15.h),
+              child: Image.asset("assets/Images/app_logo.png")),
+          actions: [
+            Container(
+              width: 34.w,
+              height: 34.h,
+              margin: EdgeInsets.symmetric(horizontal: 30.w),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(8.r),
+              ),
+              child: Icon(
+                FontAwesomeIcons.music,
+                size: 13.w,
+                color: const Color.fromRGBO(0, 133, 255, 1.0),
+              ),
+            )
+          ],
+        ),
         body: Container(
           width: double.infinity,
           height: double.infinity,
           color: Colors.black,
           child: Column(
-            //  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Stack(
                 children: [
                   const RoomWall(),
-
                   /**
-                   * TV Remote
-                   */
+               *  TV Remote
+               */
                   Positioned(
-                      top: 100,
-                      right: 25,
+                      top: 100.h,
+                      right: 34.w,
                       child: GestureDetector(
                           onTap: () {
                             showDialog(
@@ -75,12 +96,14 @@ class MyBoxPage extends StatelessWidget {
                                           ),
                                           Container(
                                             height: 100,
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 30),
+                                            padding:
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 30),
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(10),
-                                                gradient: const RadialGradient(
+                                                gradient:
+                                                    const RadialGradient(
                                                   colors: [
                                                     Colors.blueAccent,
                                                     // Color.fromRGBO(
@@ -95,8 +118,8 @@ class MyBoxPage extends StatelessWidget {
                                                         width: 1.0,
                                                         color: Colors
                                                             .grey.shade700,
-                                                        style:
-                                                            BorderStyle.solid))
+                                                        style: BorderStyle
+                                                            .solid))
                                                 //     ),),
                                                 ),
                                             child: Row(
@@ -107,7 +130,8 @@ class MyBoxPage extends StatelessWidget {
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 Icon(
-                                                  Icons.ondemand_video_outlined,
+                                                  Icons
+                                                      .ondemand_video_outlined,
                                                   size: 32,
                                                   color: Colors
                                                       .blueAccent.shade700,
@@ -132,14 +156,17 @@ class MyBoxPage extends StatelessWidget {
                                           ),
                                           Container(
                                             height: 80,
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 30),
-                                            margin: const EdgeInsets.symmetric(
-                                                vertical: 5),
+                                            padding:
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 30),
+                                            margin:
+                                                const EdgeInsets.symmetric(
+                                                    vertical: 5),
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(10),
-                                                gradient: const RadialGradient(
+                                                gradient:
+                                                    const RadialGradient(
                                                   colors: [
                                                     Color.fromRGBO(
                                                         15, 19, 76, 1.0),
@@ -153,8 +180,8 @@ class MyBoxPage extends StatelessWidget {
                                                         width: 1.0,
                                                         color: Colors
                                                             .grey.shade700,
-                                                        style:
-                                                            BorderStyle.solid))
+                                                        style: BorderStyle
+                                                            .solid))
                                                 //     ),),
                                                 ),
                                             child: Row(
@@ -190,14 +217,17 @@ class MyBoxPage extends StatelessWidget {
                                           ),
                                           Container(
                                             height: 100,
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 30),
-                                            margin: const EdgeInsets.symmetric(
-                                                vertical: 5),
+                                            padding:
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 30),
+                                            margin:
+                                                const EdgeInsets.symmetric(
+                                                    vertical: 5),
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(10),
-                                                gradient: const RadialGradient(
+                                                gradient:
+                                                    const RadialGradient(
                                                   colors: [
                                                     Color.fromRGBO(
                                                         15, 19, 76, 1.0),
@@ -211,8 +241,8 @@ class MyBoxPage extends StatelessWidget {
                                                         width: 1.0,
                                                         color: Colors
                                                             .grey.shade700,
-                                                        style:
-                                                            BorderStyle.solid))
+                                                        style: BorderStyle
+                                                            .solid))
                                                 //     ),),
                                                 ),
                                             child: Row(
@@ -257,9 +287,11 @@ class MyBoxPage extends StatelessWidget {
                                                 shape: BoxShape.circle,
                                                 border: Border.all(
                                                     width: 1.0,
-                                                    color: const Color.fromRGBO(
-                                                        17, 17, 193, 1.0),
-                                                    style: BorderStyle.solid)),
+                                                    color:
+                                                        const Color.fromRGBO(
+                                                            17, 17, 193, 1.0),
+                                                    style:
+                                                        BorderStyle.solid)),
                                             child: Container(
                                               decoration: const BoxDecoration(
                                                 gradient: RadialGradient(
@@ -289,7 +321,13 @@ class MyBoxPage extends StatelessWidget {
                             print("Remote Clicked!");
                           },
                           child: const MyTvRemote())),
-                  const Positioned(left: 25, child: TV()),
+                  /**
+                   * Television
+                   */
+                  Positioned(top: 33.h, left: 30.w, child: const TV()),
+                  /**
+                   * Bluetooth Speaker
+                   */
                   const Positioned(
                     top: 250,
                     left: 120,
